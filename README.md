@@ -67,5 +67,94 @@
 ```java
 dependencies {
    compile project(':bDIntegrationSDK')
- ｝
+ }
 ```
+
+```java
+android {
+
+  buildTypes {
+        release {
+            minifyEnabled false//是否混淆
+            zipAlignEnabled true
+            shrinkResources true//移除未使用的资源文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile;
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        File outputDirectory = new File(outputFile.parent);
+                        def fileName
+                        if (variant.buildType.name == "release") {
+                            fileName = "appName_v${defaultConfig.versionName}_${packageTime()}_${variant.productFlavors[0].name}.apk"
+                        } else {
+                            fileName = "appName_v${defaultConfig.versionName}_${packageTime()}_beta.apk"
+                        }
+                        output.outputFile = new File(outputDirectory, fileName)
+                    }
+                }
+            }
+        }
+    }
+ defaultConfig {
+        buildConfigField "String", "AUTO_TYPE", "\"baidu\""
+    }
+    productFlavors {
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+            buildConfigField "String", "AUTO_TYPE", "\"xiaomi\""
+        }
+        c360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "360"]
+            buildConfigField "String", "AUTO_TYPE", "\"360\""
+        }
+        umeng {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
+            buildConfigField "String", "AUTO_TYPE", "\"umeng\""
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+            buildConfigField "String", "AUTO_TYPE", "\"baidu\""
+        }
+    }
+}
+```
+
+```java
+def packageTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+```
+到这里配置已基本完成，接下来就是clean 和rebuild项目
+#打包
+###点击Build菜单下的Generate Signed APK
+选择新建或者使用已存在的签名
+![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/generate.png)
+成功后在app下会有相应的应用包
+![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/out2.png)
+到这里渠道打包完成
+#渠道升级
+打包会生成如下文件
+![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/out1.png)
+我们在java文件中添加如下代码
+```java
+      if ("baidu".equalsIgnoreCase(BuildConfig.AUTO_TYPE)) {
+            BDAutoUpdateSDK.silenceUpdateAction(this);//百度静默更新
+            Log.e(TAG, "baidu更新");
+        } else if ("360".equalsIgnoreCase(BuildConfig.AUTO_TYPE)) {
+            UpdateManager.setTestMode(2);//测试模式 1有更新 2有更新并省流量
+            UpdateManager.setDebug(true);//打印日志
+            UpdateManager.checkUpdate(this);
+            Log.e(TAG, "360更新");
+        } else if ("xiaomi".equalsIgnoreCase(BuildConfig.AUTO_TYPE)) {
+            XiaomiUpdateAgent.update(this);
+            Log.e(TAG, "小米更新");
+        } else if ("umeng".equalsIgnoreCase(BuildConfig.AUTO_TYPE)) {
+            UmengUpdateAgent.update(this);
+            Log.e(TAG, "umeng更新");
+        } else {
+            //其他升级
+        }
+```
+好了，我们重新打包打工告成！
+![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/out2.png)
