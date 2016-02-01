@@ -170,7 +170,7 @@ def packageTime() {
             //其他升级
         }
 ```
-好了，我们重新打包打工告成！<br>
+好了，我们重新打包大功告成！<br>
 ![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/out2.png)
 #License
 
