@@ -26,10 +26,10 @@
         <!--BD-->
         <meta-data
             android:name="BDAPPID"
-            android:value="3067515" />
+            android:value="3067515" /><!--百度应用市场的appid-->
         <meta-data
             android:name="BDAPPKEY"
-            android:value="f3Os4GAOqxgm79GqbnkT9L8T" />
+            android:value="f3Os4GAOqxgm79GqbnkT9L8T" /><!--appkey-->
 
         <activity
             android:name="com.baidu.autoupdatesdk.ConfirmDialoigActivity"
@@ -49,7 +49,7 @@
         <!--UM-->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="4f83c5d852701564c0000011" />
+            android:value="4f83c5d852701564c0000011" /><!--友盟的appkey-->
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />
