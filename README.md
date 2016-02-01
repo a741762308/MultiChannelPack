@@ -128,13 +128,13 @@ def packageTime() {
 到这里配置已基本完成，接下来就是clean 和rebuild项目
 #打包
 ###点击Build菜单下的Generate Signed APK
-选择新建或者使用已存在的签名
+选择新建或者使用已存在的签名<br>
 ![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/generate.png)
-成功后在app下会有相应的应用包
+<br>成功后在app下会有相应的应用包<br>
 ![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/out2.png)
-到这里渠道打包完成
+<br>到这里渠道打包完成
 #渠道升级
-打包会生成如下文件
+打包会生成如下文件<br>
 ![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/out1.png)
 我们在java文件中添加如下代码
 ```java
@@ -156,5 +156,21 @@ def packageTime() {
             //其他升级
         }
 ```
-好了，我们重新打包打工告成！
+好了，我们重新打包打工告成！<br>
 ![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/out2.png)
+#License
+
+    Copyright 2015 a741762308
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
