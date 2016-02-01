@@ -59,3 +59,13 @@
             </intent-filter>
         </receiver>
 ```
+##libs
+###添加如下jar（请自行到各应用市场下载lib）
+![](https://github.com/a741762308/MultiChannelPack/blob/master/sreenshot/libs.png)
+## build.grade
+###将百度升级的sdk library导入Module（也可将lib与资源文件拷贝）
+```java
+dependencies {
+   compile project(':bDIntegrationSDK')
+ ｝
+```
