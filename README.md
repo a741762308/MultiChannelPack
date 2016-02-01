@@ -4,7 +4,7 @@
 ####详情可以参考 http://www.jianshu.com/p/5993310dd643?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
 ##manifest
 ```java
-   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
