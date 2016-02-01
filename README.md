@@ -1,11 +1,10 @@
-:running【Android多渠道打包与升级】:running
+:running:【Android多渠道打包与升级】:running:
 ====
 #配置【本例集成umeng、360、百度、小米】
 ####详情可以参考 http://www.jianshu.com/p/5993310dd643?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io
 ##manifest
-####添加
 ```java
- <!--BD-->
+       <!--BD-->
         <meta-data
             android:name="BDAPPID"
             android:value="3067515" /><!--百度应用市场的appid-->
