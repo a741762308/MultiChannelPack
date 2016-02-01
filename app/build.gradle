@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.jsqix.multichannelpack"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false//是否混淆
+            zipAlignEnabled true
+            shrinkResources true//移除未使用的资源文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile;
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        File outputDirectory = new File(outputFile.parent);
+                        def fileName
+                        if (variant.buildType.name == "release") {
+                            fileName = "appName_v${defaultConfig.versionName}_${packageTime()}_${variant.productFlavors[0].name}.apk"
+                        } else {
+                            fileName = "appName_v${defaultConfig.versionName}_${packageTime()}_beta.apk"
+                        }
+                        output.outputFile = new File(outputDirectory, fileName)
+                    }
+                }
+            }
+        }
+    }
+    defaultConfig {
+        buildConfigField "String", "AUTO_TYPE", "\"baidu\""
+    }
+    productFlavors {
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+            buildConfigField "String", "AUTO_TYPE", "\"xiaomi\""
+        }
+        c360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "360"]
+            buildConfigField "String", "AUTO_TYPE", "\"360\""
+        }
+        umeng {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
+            buildConfigField "String", "AUTO_TYPE", "\"umeng\""
+        }
+        baidu {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+            buildConfigField "String", "AUTO_TYPE", "\"baidu\""
+        }
+    }
+
+}
+
+def packageTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile project(':bDIntegrationSDK')
+}

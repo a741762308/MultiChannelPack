@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\MultiChannelPack\\bDIntegrationSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\bdp_update_bg_dialog_title.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\MultiChannelPack\\bDIntegrationSDK\\build\\intermediates\\bundles\\debug\\res\\drawable\\bdp_update_bg_dialog_title.xml"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\MultiChannelPack\\bDIntegrationSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\bdp_update_progress_download.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\MultiChannelPack\\bDIntegrationSDK\\build\\intermediates\\bundles\\debug\\res\\drawable\\bdp_update_progress_download.xml"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\MultiChannelPack\\bDIntegrationSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\bdp_update_bg_dialog_content.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\MultiChannelPack\\bDIntegrationSDK\\build\\intermediates\\bundles\\debug\\res\\drawable\\bdp_update_bg_dialog_content.xml"
+    },
+    {
+        "merged": "E:\\qishun\\Android\\StudioProjects\\MultiChannelPack\\bDIntegrationSDK\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\bdp_update_bg_dialog_btn.xml",
+        "source": "E:\\qishun\\Android\\StudioProjects\\MultiChannelPack\\bDIntegrationSDK\\build\\intermediates\\bundles\\debug\\res\\drawable\\bdp_update_bg_dialog_btn.xml"
+    }
+]
